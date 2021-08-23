@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">TechTask</string>
+    <string name="tech_task">Tech Task</string>
+    <string name="username">Username</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="oh_oh">Oh Oh</string>
+    <string name="login_error">There was a error when attempting to log you in. Please try again.</string>
+    <string name="invalid_form">Username or password is empty. Please fill in both and try again.</string>
+    <string name="okay">OK</string>
 </resources>
