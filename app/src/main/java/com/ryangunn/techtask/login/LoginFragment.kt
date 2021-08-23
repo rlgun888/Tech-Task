@@ -4,12 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.ryangunn.techtask.R
 import com.ryangunn.techtask.databinding.FragmentLoginBinding
@@ -34,6 +35,8 @@ class LoginFragment:Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        (requireActivity() as AppCompatActivity).supportActionBar?.title =
+            getString(R.string.app_name)
         viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
         binding.apply {
             loginButton.setOnClickListener {
@@ -71,7 +74,7 @@ class LoginFragment:Fragment() {
                                 }
                             }
                             is Result.Success -> {
-                                Toast.makeText(requireContext(), "Success", Toast.LENGTH_LONG).show()
+                                findNavController().navigate(R.id.displayDriverAction)
                             }
                         }
                     }

@@ -26,11 +26,13 @@ class LoginViewModel:ViewModel() {
             _invalidForm.value = false
             viewModelScope.launch {
                 try {
-                    _loginResult.value = Result.Loading(false)
+                    _loginResult.value = Result.Loading(true)
                     val userBody = UserBody(username,password)
                    val userResponse =  TechTaskRetroFitClient.instance.login(userBody)
+                    _loginResult.value = Result.Loading(false)
                     _loginResult.value = Result.Success(userResponse)
                 }catch (ex:Exception){
+                    _loginResult.value = Result.Loading(false)
                     _loginResult.value = Result.Error(ex)
                 }
             }

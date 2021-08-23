@@ -7,5 +7,34 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.ryangunn.techtask.login.LoginFragment"
-        android:label="LoginFragment" />
+        android:label="LoginFragment">
+
+        <action
+            android:id="@+id/displayDriverAction"
+            app:destination="@id/driversFragment"
+            app:launchSingleTop="true" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/driversFragment"
+        android:name="com.ryangunn.techtask.driver.DriversFragment"
+        android:label="DriversFragment">
+        <action
+            android:id="@+id/action_driversFragment_to_driverDetailFragment"
+            app:destination="@id/driverDetailFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim">
+
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/driverDetailFragment"
+        android:name="com.ryangunn.techtask.driver.DriverDetailFragment"
+        android:label="DriverDetailFragment">
+
+        <argument
+            android:name="driver"
+            app:argType="com.ryangunn.techtask.driver.model.Driver"
+            app:nullable="false" />
+    </fragment>
 </navigation>
